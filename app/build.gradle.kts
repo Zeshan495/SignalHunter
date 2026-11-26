@@ -1,20 +1,17 @@
-
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("org.jetbrains.kotlin.plugin.compose")
 }
-
 android {
     namespace = "com.signalhunter"
     compileSdk = 35
-
     defaultConfig {
         applicationId = "com.signalhunter"
         minSdk = 26
         targetSdk = 35
-        versionCode = 3
-        versionName = "1.2"
+        versionCode = 4
+        versionName = "1.2.1"
     }
 
     compileOptions {
@@ -26,7 +23,6 @@ android {
         jvmTarget = "17"
     }
 }
-
 dependencies {
     implementation(platform("androidx.compose:compose-bom:2024.12.01"))
     implementation("androidx.activity:activity-compose:1.10.0")
@@ -38,4 +34,3 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0")
     debugImplementation("androidx.compose.ui:ui-tooling")
 }
-
