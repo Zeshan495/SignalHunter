@@ -24,6 +24,13 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Dashboard
+import androidx.compose.material.icons.filled.Map
+import androidx.compose.material.icons.filled.Refresh
+import androidx.compose.material.icons.filled.SignalCellularAlt
+import androidx.compose.material.icons.filled.Tune
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -405,7 +412,7 @@ fun SignalHunterScreen(
                     actions = {
                         IconButton(onClick = onRefresh) {
                             androidx.compose.material3.Icon(
-                                imageVector = androidx.compose.material.icons.Icons.Default.Refresh,
+                                imageVector = Icons.Filled.Refresh,
                                 contentDescription = "Refresh signal"
                             )
                         }
@@ -419,9 +426,9 @@ fun SignalHunterScreen(
                 NavigationBar(containerColor = MaterialTheme.colorScheme.surface) {
                     val destinations = listOf("Overview", "Signal map", "Tools")
                     val icons = listOf(
-                        androidx.compose.material.icons.Icons.Default.Dashboard,
-                        androidx.compose.material.icons.Icons.Default.Map,
-                        androidx.compose.material.icons.Icons.Default.Tune
+                        Icons.Filled.Dashboard,
+                        Icons.Filled.Map,
+                        Icons.Filled.Tune
                     )
                     destinations.forEachIndexed { index, label ->
                         NavigationBarItem(
@@ -468,7 +475,7 @@ fun SignalHunterScreen(
                                 verticalAlignment = Alignment.CenterVertically,
                                 horizontalArrangement = Arrangement.spacedBy(6.dp)) {
                                 androidx.compose.material3.Icon(
-                                    androidx.compose.material.icons.Icons.Default.SignalCellularAlt,
+                                    Icons.Filled.SignalCellularAlt,
                                     contentDescription = null,
                                     tint = MaterialTheme.colorScheme.primary,
                                     modifier = Modifier.size(16.dp)
@@ -509,7 +516,7 @@ fun SignalHunterScreen(
                                 repeat(5) { index ->
                                     val active = best != null && index < ((best.level.coerceIn(0, 4) + 1))
                                     Surface(
-                                        modifier = Modifier.weight(1f).height(if (index == 4) 30.dp else 22.dp + index * 2.dp),
+                                        modifier = Modifier.weight(1f).height(if (index == 4) 30.dp else 22.dp + 2.dp * index),
                                         shape = MaterialTheme.shapes.small,
                                         color = if (active) qualityColor else MaterialTheme.colorScheme.surfaceVariant
                                     ) {}
@@ -524,7 +531,7 @@ fun SignalHunterScreen(
                             Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                                 Button(onClick = onRefresh, modifier = Modifier.weight(1f)) {
                                     androidx.compose.material3.Icon(
-                                        androidx.compose.material.icons.Icons.Default.Refresh,
+                                        Icons.Filled.Refresh,
                                         contentDescription = null,
                                         modifier = Modifier.size(17.dp)
                                     )
@@ -548,7 +555,7 @@ fun SignalHunterScreen(
                         Row(Modifier.padding(12.dp), verticalAlignment = Alignment.CenterVertically,
                             horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                             androidx.compose.material3.Icon(
-                                androidx.compose.material.icons.Icons.Default.Tune,
+                                Icons.Filled.Tune,
                                 contentDescription = null,
                                 tint = MaterialTheme.colorScheme.primary
                             )
@@ -623,7 +630,7 @@ fun SignalHunterScreen(
                                     color = MaterialTheme.colorScheme.onSurfaceVariant)
                                 Button(onClick = onSaveSpot, modifier = Modifier.fillMaxWidth()) {
                                     androidx.compose.material3.Icon(
-                                        androidx.compose.material.icons.Icons.Default.Add,
+                                        Icons.Filled.Add,
                                         contentDescription = null
                                     )
                                     Spacer(Modifier.width(8.dp))
@@ -670,7 +677,7 @@ fun SignalHunterScreen(
                             Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
                                 Row(verticalAlignment = Alignment.CenterVertically) {
                                     androidx.compose.material3.Icon(
-                                        androidx.compose.material.icons.Icons.Default.Refresh,
+                                        Icons.Filled.Refresh,
                                         contentDescription = null,
                                         tint = MaterialTheme.colorScheme.primary,
                                         modifier = Modifier.size(26.dp)
